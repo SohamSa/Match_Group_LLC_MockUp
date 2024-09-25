@@ -1,5 +1,5 @@
-## Match Group Churn and Feature Analysis Project
-# Interaction Term Analysis and Statistical Modeling Project
+# Match Group Churn and Feature Analysis Project
+## Interaction Term Analysis and Statistical Modeling Project
 
 ## Overview
 
