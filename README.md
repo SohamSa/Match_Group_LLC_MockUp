@@ -64,7 +64,10 @@ Due to the sensitivity of the data and company policies, it was necessary to use
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/yourprojectname.git
+   git clone https://github.com/SohamSa/Mock_Match_Group.git
    cd yourprojectname
+   cd Mock_Match_Group
 
-   cd yourprojectname
+   OR for Download:
+   
 
