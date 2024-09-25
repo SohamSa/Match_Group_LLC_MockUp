@@ -3,42 +3,54 @@
 
 ## Overview
 
-This project aims to analyze and visualize the interaction effects of various features on user behavior, specifically focusing on multi-session user behavior. Using advanced statistical modeling techniques, such as Multinomial Logistic Regression, the project explores the impact of individual features and their interactions, ultimately providing insights that guide decision-making in user engagement strategies.
+At Match Group, I joined the team at a critical juncture when Match.com was struggling with a significant issue: **66% of potential users were abandoning the platform before completing the registration process**. The registration consisted of 23 steps, including personal identification information, demographic details, and questions designed to enhance matchmaking. My primary task was to uncover the reasons behind this high abandonment rate and provide actionable insights to improve customer retention.
 
 ## Purpose of the Project
 
 The purpose of this project is to:
-- Identify significant interaction terms among various user attributes that affect multi-session behavior.
-- Quantify the impact of these interactions using beta coefficients from a Multinomial Logistic Regression model.
-- Provide a statistical foundation for prioritizing A/B testing and optimization efforts.
+- **Identify key factors and interaction effects** that influence user behavior, particularly those leading to high registration abandonment rates.
+- **Provide data-driven insights** to enhance user retention by targeting the most impactful features and interactions.
 
 ## Goal of the Project
 
-The main goal of this project is to:
-- Understand how different user attributes and their interactions influence the likelihood of a user engaging in multi-session behavior.
-- Visualize the beta coefficients of these interaction terms to highlight the most impactful factors.
-- Assess the feasibility of A/B testing or Multivariate Testing (MVT) for the identified interaction terms to guide further experimental design.
+The main goal of this project was to:
+- Understand how different user attributes and their interactions influenced the likelihood of a user engaging in multi-session behavior, particularly completing registration and remaining on the platform.
+- Develop actionable strategies to **reduce churn and improve overall user retention** on Match.com.
 
 ## How the Goal was Achieved
 
-### 1. Data Preparation
-- **Data Generation**: A synthetic dataset was generated with 2.2 million users, containing various user attributes such as age, gender, profile completeness, and device type.
-- **Feature Engineering**: Interaction terms between features were created to explore how combined effects influence multi-session behavior.
+### 1. Data Collection and Preparation
 
-### 2. Statistical Modeling
-- **Multinomial Logistic Regression**: A Multinomial Logistic Regression model was fitted to the data, including main effects and interaction terms. This model was used to estimate the beta coefficients of the interaction terms.
-- **Beta Coefficient Analysis**: The regression results were analyzed to extract and visualize the beta coefficients of the interaction terms, highlighting the most significant factors.
+I started by building a comprehensive dataset of 2.2 million users, extracting data from hundreds of Microsoft SQL Server databases. This involved writing complex SQL queries, utilizing joins, window functions, and subqueries to collect and aggregate the necessary data. Once the dataset was complete, I transferred it into Python Jupyter Notebook for further analysis.
 
-### 3. Visualization
-- **Beta Coefficient Plot**: A bar plot of the beta coefficients was created to visually represent the magnitude and direction of each interaction term’s impact on multi-session behavior.
+Given the data sensitivity and non-disclosure agreements, the exact data cannot be shared publicly. Therefore, for this project showcase, a mock dataset was generated using Python, simulating the data extraction and processing steps as closely as possible to the real-world scenario.
 
-### 4. Feasibility Analysis of A/B and MVT Testing
-- **A/B Testing Feasibility**: Assessed the practicality of conducting A/B tests on all 21 interaction terms, concluding that simultaneous testing is not feasible due to sample size, complexity, and duration constraints.
-- **MVT Feasibility**: Explored the potential of Multivariate Testing (MVT) for the interaction terms and determined that even MVT is not practical for all terms due to similar challenges.
+### 2. Exploratory Data Analysis (EDA)
 
-### Key Insights:
-- **Prioritization of Interaction Terms**: The analysis identified key interaction terms with the highest impact, allowing for prioritization in future testing and optimization efforts.
-- **Strategic Guidance**: The project provides a data-driven approach to understanding user behavior, guiding decisions in user engagement and marketing strategies.
+With the dataset in Python, I began by conducting Exploratory Data Analysis (EDA). This phase allowed me to dive deep into the data, uncovering trends and patterns related to user behavior throughout the registration funnel. By familiarizing myself with the dataset, I gained a clear understanding of the key features that might be influencing user dropout rates.
+
+### 3. Statistical Significance Testing
+
+The next step was to determine which features were statistically significant in predicting whether users would complete the registration and stay on the platform for more than 24 hours. I implemented inferential statistical methods, using p-values, f-scores, and t-tests to assess the importance of individual features and their interactions.
+
+The target variable in my analysis was the **Multi_session column**, a probabilistic indicator of whether a user stayed on the app for 24 hours after registration, where 1 indicated retention and 0 represented churn.
+
+### 4. Modeling Interaction Effects
+
+To model this relationship, I used **Multinomial Logistic Regression**, which allowed me to estimate the probability of a user remaining on the app based on the identified features and their interactions. Beta coefficients from the model provided insights into the impact of each interaction term, guiding the prioritization of subsequent testing.
+
+### 5. Validation through A/B Testing
+
+After building the model, I validated the findings using A/B testing, focusing on key interaction terms. This involved testing various permutations of features, interactions of features, and excluding certain features to observe their impact on the user retention rate. 
+
+Through a combination of rigorous analysis, modeling, and A/B testing, I identified several key insights that led to significant improvements. 
+
+### Key Insights and Results:
+- The analysis identified critical interaction terms contributing most to user retention and registration completion.
+- The final solution resulted in a **15% reduction in churn**, meaning 15% more users completed the registration process and stayed on the platform compared to before. This increase in customer retention directly improved the overall user experience and engagement on Match.com.
+
+### Important Disclaimer
+Due to the sensitivity of the data and company policies, it was necessary to use randomly generated mock data for this public showcase. As a result, **the results and inferences from these findings may not match exactly with those derived from real data. The focus of this project is not on the specific findings, but on demonstrating the analytical approach and methodology used to tackle the problem.** The preprocessing steps to create datasets from scratch in SQL and further multivariate testing are not feasible to demonstrate here due to data access limitations and the absence of deployment infrastructure linked to company databases.
 
 ## Project Structure
 
@@ -52,5 +64,7 @@ The main goal of this project is to:
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/yourprojectname.git
+   cd yourprojectname
+
    cd yourprojectname
 
